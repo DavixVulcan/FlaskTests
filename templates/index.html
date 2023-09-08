@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PanOptica</title>
+        <!-- <link rel="stylesheet" href="{{url_for('static', filename = 'css/homepage.css')}}">-->
+        <link rel="stylesheet" href="../static/css/homepage.css">
+    </head>
+    <body>
+        <div class="topnav">
+            <a class="eyecon">👁 PanOptica</a>
+            <div class="rightmenu">
+                <a>🏚 Home</a>                
+                <a>🎞 Staging</a>
+                <a>i dunno</a>
+                <a>⚙ About</a>
+            </div>
+        </div>
+
+
+        <div class="grid-container">
+
+            
+
+            <div class="cell-item" id="console">hmm</div>
+
+            <div class="cell-item" id="chat">
+                <div class="upper-text" id="upper-chat-text">
+                    <div class="chat-message" id="init-chat">
+                        <label class="chatter-name">PanOptica: </label>
+                        <a class="chatter-message">Hello, currently logged in uhh lets ckech to see how it wraps</a>
+                    </div>
+                </div>
+                <form id="form">
+                    <label >👁‍🗨></label>
+                    <input type="text" class="text-area" id="message-input">
+                    <input type="button" value="Send" class="message-send" id="chat-send">
+                </form>
+
+            </div>
+        </div>
+        
+
+        <!-- Script for the entire page -->
+        <!-- <script type = "text/javascript"
+            src = "{{url_for('static', filename = 'js/homepage.js')}}">
+        </script> -->
+        <script src="../static/js/homepage.js"></script>
+    </body>
+</html>

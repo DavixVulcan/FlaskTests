@@ -1,0 +1,189 @@
+body {
+    font-family: Consolas;
+}   
+
+.topnav {
+    overflow: hidden;
+    background-color: gainsboro;
+    box-sizing: border-box;
+    display: block;
+    padding: 22px;
+    font-size: large;
+    color: white;
+    font-family: Consolas;
+    border-radius: 20px;
+    min-width: 700px;
+    width: 100%;
+    height: fit-content;
+}
+
+.eyecon {
+    float:left;
+    height: 90%;
+    color: black;
+}
+
+.eyecon:hover {
+    color: white;
+    animation-name: eyes;
+    animation-duration: .1s;
+}
+
+@keyframes eyes {
+    from {
+        color: black;
+    }
+    to {
+        color: white;
+    }
+}
+
+
+.rightmenu{
+    float: right;
+}
+
+.rightmenu a {
+    padding: 15px;
+    border-radius: 20px;
+    background-color: white;
+    color: grey;
+}
+
+.rightmenu a:hover {
+    animation-name: menuhover;
+    animation-duration: .15s;
+    border-width: 0px;
+    border-style: solid;
+    border-bottom-width: 4px;
+    background-color: lightcyan;
+    border-color: aquamarine;
+}
+
+@keyframes menuhover {
+    from {
+        background-color: white;
+        border-width: 0px;
+        border-radius: 20px;
+    }
+    to {
+        border-style: solid;
+        border-bottom-width: 4px;
+        background-color: lightcyan;
+        border-color: aquamarine;
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 35% 35% 30%;
+    grid-template-rows: 70% auto;
+    height: 88vh;
+    margin: 10px;
+}
+
+
+#console {
+    grid-column:2;
+    grid-row:1;
+}
+
+.cell-item {
+    margin: 5px;
+    padding: 10px;
+    background-color: lightcyan;
+    border-style: solid;
+    border-width: 3px;
+    border-color: gainsboro;
+    border-radius: 10px;
+}
+
+.message-send {
+    background-color: lightgray;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.message-send:hover {
+    background-color: lightcyan;
+    color:gray;
+}
+
+.message-send:active {
+    background-color: aquamarine;
+    color: grey;
+}
+
+input[type=text] {
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 4px;
+}
+input[type=text]:hover {
+    background-color: lightcyan;
+}
+
+input[type=text]:focus{
+    background-color: white;
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: aquamarine;
+}
+
+#chat {
+    overflow: visible;
+    padding: none;
+    bottom: 0;
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.upper-text {
+    width: 100%;
+    height: calc(100% - 45px);
+    overflow-y: scroll;   
+    overflow-x: hidden;
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+#form {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    bottom: 0;
+    height: auto;
+    background-color: gainsboro;
+    padding: 5px;
+    border-radius: 25px;
+}
+
+.text-area {
+    box-sizing: border-box;
+    width: calc(100% - 100px);
+}
+
+.message-send {
+    position: relative;
+    float: right;
+}
+
+.chat-message {
+    animation-name: chatintro;
+    animation-duration:  .5s;
+}
+
+@keyframes chatintro {
+    from {
+        transform: translateX(100%);
+        color: white;
+        background-color: lightcyan;
+    }
+    to {
+        position: auto;
+        color: black;
+    }
+}
