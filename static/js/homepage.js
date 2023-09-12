@@ -11,11 +11,25 @@ document.getElementById('chat-send').onclick = ev => {
     textfield.value = '';
 }
 
+document.getElementById("message-input").addEventListener("keydown", (e)=>{
+    if (e.code === "Enter"){
+        const textfield = document.getElementById("message-input");
+        // socket.send(textfield.value);
+        new_chat("me", textfield.value);
+        textfield.value = '';
+    }
+})
 
 
 function new_chat(sender, message) {
-    const chatelement = document.getElementById('init-chat')
-    var chatbox = document.getElementById('upper-chat-text');
-    chatbox.appendChild(chatelement.cloneNode(true));
-    console.log(chatbox.lastChild);
+    
+    const chatelement = document.getElementById('init-chat');
+    chatelement.innerHTML += 
+    `<div>
+    <label class="chatter-name">${sender}: </label>
+    <a class="chatter-message">${message}</a>
+</div>`
+    chatelement.lastChild.setAttribute("style", `animation-name: chatintro;
+    animation-duration:  .5s;`);
+    
 }
