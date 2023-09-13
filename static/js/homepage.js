@@ -33,11 +33,11 @@ function new_chat(sender, message) {
 
     let new_message = document.createElement('div');
     new_message.innerHTML += `<div>
-    <label class="chatter-name">${sender}: </label>
+    <a class="chatter-name">${sender}: </a>
     <a class="chatter-message">${message}</a>
 </div>`
     new_message.setAttribute("style", `animation-name: chatintro;
-    animation-duration:  .5s;`);
+    animation-duration:  .25s;`);
     chatelement.insertBefore(new_message, anchory);
     anchory = new_message;
 }

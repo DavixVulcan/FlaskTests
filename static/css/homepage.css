@@ -144,7 +144,7 @@ input[type=text]:focus{
     height: calc(100% - 45px); 
     overflow-y: scroll;
     overflow-x: hidden;
-    overflow-wrap: normal;
+    overflow-wrap: anywhere;
     display: flex;
     flex-direction: column-reverse;
     background-color: white;
@@ -180,7 +180,7 @@ input[type=text]:focus{
 
 .chat-message {
     animation-name: chatintro;
-    animation-duration:  .5s;
+    animation-duration:  .25s;
     overflow-anchor: none;
 }
 
