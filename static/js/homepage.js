@@ -7,29 +7,37 @@ document.getElementById('chat-send').onclick = ev => {
     
     const textfield = document.getElementById("message-input");
     // socket.send(textfield.value);
-    new_chat("me", textfield.value);
-    textfield.value = '';
+    if (textfield.value.length != 0) {
+        new_chat("me", textfield.value);
+        textfield.value = '';
+    }
 }
 
 document.getElementById("message-input").addEventListener("keydown", (e)=>{
     if (e.code === "Enter"){
         const textfield = document.getElementById("message-input");
         // socket.send(textfield.value);
-        new_chat("me", textfield.value);
-        textfield.value = '';
+        if (textfield.value.length != 0) {
+            new_chat("me", textfield.value);
+            textfield.value = '';
+        }
     }
 })
 
+var anchory = document.getElementById('init-chat');
 
 function new_chat(sender, message) {
     
-    const chatelement = document.getElementById('init-chat');
-    chatelement.innerHTML += 
-    `<div>
+    var chatelement = document.getElementById('upper-chat-text');
+    
+
+    let new_message = document.createElement('div');
+    new_message.innerHTML += `<div>
     <label class="chatter-name">${sender}: </label>
     <a class="chatter-message">${message}</a>
 </div>`
-    chatelement.lastChild.setAttribute("style", `animation-name: chatintro;
+    new_message.setAttribute("style", `animation-name: chatintro;
     animation-duration:  .5s;`);
-    
+    chatelement.insertBefore(new_message, anchory);
+    anchory = new_message;
 }

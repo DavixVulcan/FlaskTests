@@ -135,20 +135,26 @@ input[type=text]:focus{
 
 #chat {
     overflow: visible;
-    padding: none;
-    bottom: 0;
     grid-column: 3;
     grid-row: 1;
 }
 
 .upper-text {
     width: 100%;
-    height: calc(100% - 45px);
-    overflow-y: scroll;   
+    height: calc(100% - 45px); 
+    overflow-y: scroll;
     overflow-x: hidden;
-    overflow-anchor: bottom;
+    overflow-wrap: normal;
+    display: flex;
+    flex-direction: column-reverse;
     background-color: white;
     margin-bottom: 10px;
+}
+
+#anchor {
+    overflow-anchor: auto;
+    height: 1px;
+    background-color: red;
 }
 
 #form {
@@ -175,6 +181,7 @@ input[type=text]:focus{
 .chat-message {
     animation-name: chatintro;
     animation-duration:  .5s;
+    overflow-anchor: none;
 }
 
 @keyframes chatintro {
