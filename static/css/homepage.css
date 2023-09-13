@@ -1,9 +1,11 @@
 body {
     font-family: Consolas;
+    background-color: grey;
 }   
 
 .topnav {
     overflow: hidden;
+    /* background-color: darkgray; */
     background-color: gainsboro;
     box-sizing: border-box;
     display: block;
@@ -24,7 +26,7 @@ body {
 }
 
 .eyecon:hover {
-    color: white;
+    color: deepskyblue;
     animation-name: eyes;
     animation-duration: .1s;
 }
@@ -34,7 +36,7 @@ body {
         color: black;
     }
     to {
-        color: white;
+        color: deepskyblue;
     }
 }
 
@@ -57,7 +59,8 @@ body {
     border-style: solid;
     border-bottom-width: 4px;
     background-color: lightcyan;
-    border-color: aquamarine;
+    border-color: deepskyblue;
+    color: deepskyblue;
 }
 
 @keyframes menuhover {
@@ -70,22 +73,16 @@ body {
         border-style: solid;
         border-bottom-width: 4px;
         background-color: lightcyan;
-        border-color: aquamarine;
+        border-color: deepskyblue;
     }
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: 35% 35% 30%;
+    grid-template-columns: 33% 33% 33%;
     grid-template-rows: 70% auto;
     height: 88vh;
     margin: 10px;
-}
-
-
-#console {
-    grid-column:2;
-    grid-row:1;
 }
 
 .cell-item {
@@ -101,7 +98,7 @@ body {
 .message-send {
     background-color: lightgray;
     border: none;
-    color: white;
+    color: black;
     border-radius: 10px;
     padding: 4px;
 }
@@ -133,6 +130,13 @@ input[type=text]:focus{
     outline-color: aquamarine;
 }
 
+#console {
+    background-color: darkgrey;
+    overflow: visible;
+    grid-column: 2;
+    grid-row: 1;
+}
+
 #chat {
     overflow: visible;
     grid-column: 3;
@@ -149,18 +153,35 @@ input[type=text]:focus{
     flex-direction: column-reverse;
     background-color: white;
     margin-bottom: 10px;
+    border-top-left-radius: 10px;
+    padding-left: 5px;
+}
+
+#upper-console-text {
+    background-color: gray;
+    color: white;
 }
 
 #anchor {
     overflow-anchor: auto;
     height: 1px;
-    background-color: red;
+    background-color: deepskyblue;
+}
+
+#chat-anchor {
+    height: 1px;
+    background-color: lightcyan;
+}
+
+#console-form {
+    bottom: 0;
+    height: auto;
+    background-color: grey;
+    padding: 5px;
+    border-radius: 25px;
 }
 
 #form {
-    position: relative;
-    box-sizing: border-box;
-    width: 100%;
     bottom: 0;
     height: auto;
     background-color: gainsboro;
