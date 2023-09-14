@@ -59,7 +59,7 @@ body {
     border-style: solid;
     border-bottom-width: 4px;
     background-color: lightcyan;
-    border-color: deepskyblue;
+    border-color: grey;
     color: deepskyblue;
 }
 
@@ -73,7 +73,7 @@ body {
         border-style: solid;
         border-bottom-width: 4px;
         background-color: lightcyan;
-        border-color: deepskyblue;
+        border-color: grey;
     }
 }
 

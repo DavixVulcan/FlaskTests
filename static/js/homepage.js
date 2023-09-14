@@ -4,40 +4,31 @@ socket.addEventListener('message', ev => {
 })
 
 document.getElementById('chat-send').onclick = ev => {
-    
     const textfield = document.getElementById("message-input");
-    // socket.send(textfield.value);
-    if (textfield.value.length != 0) {
-        new_chat("me", textfield.value);
-        textfield.value = '';
-    }
+    const chat_context = document.getElementById('upper-chat-text');
+    new_chat('me', chat_context, textfield);
 }
 
 document.getElementById("message-input").addEventListener("keydown", (e)=>{
     if (e.code === "Enter"){
         const textfield = document.getElementById("message-input");
-        // socket.send(textfield.value);
-        if (textfield.value.length != 0) {
-            new_chat("me", textfield.value);
-            textfield.value = '';
-        }
+        const chat_context = document.getElementById('upper-chat-text');
+        new_chat('me', chat_context, textfield);
     }
 })
 
-var anchory = document.getElementById('init-chat');
-
-function new_chat(sender, message) {
+function new_chat(sender, context, text_field) {
     
-    var chatelement = document.getElementById('upper-chat-text');
-    
-
-    let new_message = document.createElement('div');
-    new_message.innerHTML += `<div>
-    <a class="chatter-name">${sender}: </a>
-    <a class="chatter-message">${message}</a>
-</div>`
-    new_message.setAttribute("style", `animation-name: chatintro;
-    animation-duration:  .25s;`);
-    chatelement.insertBefore(new_message, anchory);
-    anchory = new_message;
+    message = text_field.value;
+    if (message.length != 0){
+        let new_message = document.createElement('div');
+        new_message.innerHTML += `<div>
+        <a class="chatter-name">${sender}: </a>
+        <a class="chatter-message">${message}</a>
+        </div>`
+        new_message.setAttribute("style", `animation-name: chatintro;
+        animation-duration:  .25s;`);
+        context.insertBefore(new_message, context.firstChild);
+        text_field.value = '';
+    }
 }
