@@ -20,7 +20,8 @@ document.getElementById("message-input").addEventListener("keydown", (e)=>{
 function new_chat(sender, context, text_field) {
     
     message = text_field.value;
-    if (message.length != 0){
+    message = message.trim();
+    if (message.length !== 0){
         let new_message = document.createElement('div');
         new_message.innerHTML += `<div>
         <a class="chatter-name">${sender}: </a>
