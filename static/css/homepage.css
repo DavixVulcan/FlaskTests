@@ -124,6 +124,8 @@ body {
     background-color: white;
     border: none;
     border-radius: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .text-area:hover {
