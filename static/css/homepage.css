@@ -9,7 +9,7 @@ body {
     /* background-color: darkgray; */
     background-color: gainsboro;
     box-sizing: border-box;
-    display: block;
+    display: flex;
     padding: 22px;
     font-size: large;
     color: white;
@@ -21,7 +21,6 @@ body {
 }
 
 .eyecon {
-    float:left;
     height: 90%;
     color: black;
 }
@@ -43,7 +42,7 @@ body {
 
 
 .right-menu{
-    float: right;
+    margin-left: auto;
 }
 
 .right-menu a {
@@ -121,11 +120,12 @@ body {
 /* Global chat text input class stylings */
 .text-area {
     flex-grow: 1;
+    min-width: 0;
     background-color: white;
     border: none;
     border-radius: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
+    margin-left: 1%;
+    margin-right: 2%;
 }
 
 .text-area:hover {
@@ -211,6 +211,7 @@ body {
     border-radius: 25px;
 }
 
+/* Chat intro animation slide */
 .chat-message {
     animation-name: chatintro;
     animation-duration:  .25s;

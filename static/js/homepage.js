@@ -4,31 +4,36 @@ socket.addEventListener('message', ev => {
 })
 
 document.getElementById('chat-send').onclick = ev => {
-    const textfield = document.getElementById("message-input");
+    const textfield = document.getElementById("chat-input");
     const chat_context = document.getElementById('upper-chat-text');
     new_chat('me', chat_context, textfield);
 }
 
-document.getElementById("message-input").addEventListener("keydown", (e)=>{
+document.getElementById("chat-input").addEventListener("keydown", (e)=>{
     if (e.code === "Enter"){
-        const textfield = document.getElementById("message-input");
+        const textfield = document.getElementById("chat-input");
         const chat_context = document.getElementById('upper-chat-text');
         new_chat('me', chat_context, textfield);
     }
 })
 
-function new_chat(sender, context, text_field) {
+function new_chat(sender, context, text_field, ) {
     
     message = text_field.value;
     message = message.trim();
     if (message.length !== 0){
         let new_message = document.createElement('div');
-        new_message.innerHTML += `<div>
-        <a class="chatter-name">${sender}: </a>
-        <a class="chatter-message">${message}</a>
-        </div>`
-        new_message.setAttribute("style", `animation-name: chatintro;
-        animation-duration:  .25s;`);
+
+        let chatter_name = document.createElement('a');
+        chatter_name.innerHTML = sender + ": ";
+
+        let chatter_message = document.createElement('a');
+        chatter_message.innerHTML = message;
+
+        new_message.appendChild(chatter_name);
+        new_message.appendChild(chatter_message);
+
+        new_message.setAttribute("class", "chat-message");
         context.insertBefore(new_message, context.firstChild);
         text_field.value = '';
     }
