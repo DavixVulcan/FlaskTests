@@ -3,6 +3,7 @@ body {
     background-color: grey;
 }   
 
+/* Top navigation stylings */
 .topnav {
     overflow: hidden;
     /* background-color: darkgray; */
@@ -41,18 +42,18 @@ body {
 }
 
 
-.rightmenu{
+.right-menu{
     float: right;
 }
 
-.rightmenu a {
+.right-menu a {
     padding: 15px;
     border-radius: 20px;
     background-color: white;
     color: grey;
 }
 
-.rightmenu a:hover {
+.right-menu a:hover {
     animation-name: menuhover;
     animation-duration: .15s;
     border-width: 0px;
@@ -77,6 +78,8 @@ body {
     }
 }
 
+
+/* Gridbox container and cell settings */
 .grid-container {
     display: grid;
     grid-template-columns: 33% 33% 33%;
@@ -88,19 +91,21 @@ body {
 .cell-item {
     margin: 5px;
     padding: 10px;
-    background-color: lightcyan;
     border-style: solid;
     border-width: 3px;
     border-color: gainsboro;
     border-radius: 10px;
 }
 
+/* Global button class settings */
 .message-send {
     background-color: lightgray;
     border: none;
     color: black;
     border-radius: 10px;
     padding: 4px;
+    position: relative;
+    float: right;
 }
 
 .message-send:hover {
@@ -113,36 +118,26 @@ body {
     color: grey;
 }
 
-input[type=text] {
+/* Global chat text input class stylings */
+.text-area {
+    flex-grow: 1;
     background-color: white;
     border: none;
     border-radius: 10px;
-    padding: 4px;
 }
-input[type=text]:hover {
+
+.text-area:hover {
     background-color: lightcyan;
 }
 
-input[type=text]:focus{
+.text-area:focus{
     background-color: white;
     outline-style: solid;
     outline-width: 2px;
     outline-color: aquamarine;
 }
 
-#console {
-    background-color: darkgrey;
-    overflow: visible;
-    grid-column: 2;
-    grid-row: 1;
-}
-
-#chat {
-    overflow: visible;
-    grid-column: 3;
-    grid-row: 1;
-}
-
+/* Global upper chat view stylings */
 .upper-text {
     width: 100%;
     height: calc(100% - 45px); 
@@ -151,10 +146,17 @@ input[type=text]:focus{
     overflow-wrap: anywhere;
     display: flex;
     flex-direction: column-reverse;
-    background-color: white;
     margin-bottom: 10px;
     border-top-left-radius: 10px;
     padding-left: 5px;
+}
+
+/* Console cell specific item stylings */
+#console {
+    background-color: darkgrey;
+    overflow: visible;
+    grid-column: 2;
+    grid-row: 1;
 }
 
 #upper-console-text {
@@ -162,18 +164,13 @@ input[type=text]:focus{
     color: white;
 }
 
-#anchor {
-    overflow-anchor: auto;
-    height: 1px;
-    background-color: deepskyblue;
-}
-
-#chat-anchor {
+#console-anchor {
     height: 1px;
     background-color: lightcyan;
 }
 
 #console-form {
+    display: flex;
     bottom: 0;
     height: auto;
     background-color: grey;
@@ -181,22 +178,35 @@ input[type=text]:focus{
     border-radius: 25px;
 }
 
-#form {
+#console-input {
+    flex-grow: 1;
+}
+
+/* Chat cell specific item stylings */
+#chat {
+    background-color: lightcyan;
+    overflow: visible;
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#upper-chat-text {
+    background-color: white;
+    color: black;
+}
+
+#chat-anchor {
+    height: 1px;
+    background-color: deepskyblue;
+}
+
+#chat-form {
+    display: flex;
     bottom: 0;
     height: auto;
     background-color: gainsboro;
     padding: 5px;
     border-radius: 25px;
-}
-
-.text-area {
-    box-sizing: border-box;
-    width: calc(100% - 100px);
-}
-
-.message-send {
-    position: relative;
-    float: right;
 }
 
 .chat-message {
