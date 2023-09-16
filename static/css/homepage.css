@@ -184,6 +184,20 @@ body {
     flex-grow: 1;
 }
 
+.console-message {
+    animation-name: consoleintro;
+    animation-duration: .25s;
+}
+
+@keyframes consoleintro {
+    from {
+        background-color: white;
+    }
+    to {
+        background-color: grey;
+    }
+}
+
 /* Chat cell specific item stylings */
 #chat {
     background-color: lightcyan;
@@ -211,11 +225,9 @@ body {
     border-radius: 25px;
 }
 
-/* Chat intro animation slide */
 .chat-message {
     animation-name: chatintro;
     animation-duration:  .25s;
-    overflow-anchor: none;
 }
 
 @keyframes chatintro {
@@ -229,3 +241,4 @@ body {
         color: black;
     }
 }
+
