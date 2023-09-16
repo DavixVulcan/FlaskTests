@@ -53,3 +53,13 @@ function new_chat(sender, context, text_field, anim_class, delimiter) {
         socket.send(sender + ": " + message);
     }
 }
+
+function open_message(evt, contact_name) {
+    
+    var contacts = document.getElementsByClassName("active-contact");
+    for (i = 0; i < contacts.length; i++) {
+        contacts[i].computedStyleMap.class = "contact";
+    }
+
+    var selected_message_box = document.getElementById(contact_name);
+}
