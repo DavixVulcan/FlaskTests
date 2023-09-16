@@ -242,3 +242,69 @@ body {
     }
 }
 
+/* messages and highlights stylings */
+#messages-and-highlights {
+    background-color: darkgray;
+    overflow: visible;
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    overflow: auto;
+    grid-template-columns: 20% auto;
+    grid-auto-rows: min-content auto;
+}
+
+#highlights {
+    background-color: lightcyan;
+    grid-column: 1;
+    grid-row: 1;
+    border-top-left-radius: 10px;
+    text-align: center;
+    height: fit-content;
+    padding: 7px;
+}
+
+#contacts {
+    background-color: gainsboro;
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 10px;
+    padding-top: 3px;
+}
+
+.contact {
+    margin: 3px 5px 3px 5px;
+    padding:  2px 5px 2px 7px;
+    border-radius: 25px;
+    background-color: lightcyan;
+}
+
+.active-contact {
+    margin: 3px 0px 3px 5px;
+    padding:  2px 5px 2px 7px;
+    border-radius: 25px 0px 0px 25px;
+    background-color: white;
+    color: deepskyblue;
+    text-decoration: underline;
+}
+
+#message-area {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    background-color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+@keyframes contacttoactive {
+    from {
+        margin: 3px 5px 3px 5px;
+        border-radius: 25px;
+    }
+    to{
+        margin: 3px 0px 3px 5px;
+        border-radius: 25px 0px 0px 25px;
+    }
+}
