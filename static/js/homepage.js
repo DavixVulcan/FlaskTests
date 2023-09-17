@@ -54,12 +54,16 @@ function new_chat(sender, context, text_field, anim_class, delimiter) {
     }
 }
 
-function open_message(evt, contact_name) {
+function open_message(evt) {
     
-    var contacts = document.getElementsByClassName("active-contact");
-    for (i = 0; i < contacts.length; i++) {
-        contacts[i].computedStyleMap.class = "contact";
-    }
+    contact_name = evt.currentTarget.innerHTML;
+    console.log(contact_name)
 
+    var tabslistedasactive = document.getElementsByClassName("active-contact");
+    for (var i = 0; i < tabslistedasactive.length; i++){
+        tabslistedasactive[i].setAttribute("class", "contact");
+    }
+    evt.currentTarget.setAttribute("class", "active-contact");
     var selected_message_box = document.getElementById(contact_name);
+
 }

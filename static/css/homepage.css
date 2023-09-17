@@ -296,6 +296,8 @@ body {
     padding:  2px 5px 2px 7px;
     border-radius: 25px;
     background-color: lightcyan;
+    animation-name: contacttononactive;
+    animation-duration: .3s;
 }
 
 .active-contact {
