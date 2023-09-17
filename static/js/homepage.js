@@ -59,11 +59,14 @@ function open_message(evt) {
     contact_name = evt.currentTarget.innerHTML;
     console.log(contact_name)
 
-    var tabslistedasactive = document.getElementsByClassName("active-contact");
+    const tabslistedasactive = document.getElementsByClassName("active-contact");
     for (var i = 0; i < tabslistedasactive.length; i++){
         tabslistedasactive[i].setAttribute("class", "contact");
     }
+
     evt.currentTarget.setAttribute("class", "active-contact");
     var selected_message_box = document.getElementById(contact_name);
+}
 
+function create_contact() {
 }
