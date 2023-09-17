@@ -164,6 +164,7 @@ body {
 #upper-console-text {
     background-color: gray;
     color: white;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #console-anchor {
@@ -259,6 +260,9 @@ body {
     grid-column: 1;
     grid-row: 1;
     border-top-left-radius: 10px;
+    border-width: 3px 0px 0px 3px;
+    border-style: solid;
+    border-color: gainsboro;
     text-align: center;
     height: fit-content;
     padding: 7px;
@@ -290,6 +294,15 @@ body {
     background-color: white;
     color: deepskyblue;
     text-decoration: underline;
+}
+
+.spawn-contact {
+    margin: 3px 5px 3px 5px;
+    padding:  2px 5px 2px 7px;
+    border-radius: 25px;
+    background-color: lightcyan;
+    animation-name: spawncontact;
+    animation-duration: .2s;
 }
 
 .contact {
@@ -334,14 +347,66 @@ body {
     }
 }
 
+@keyframes spawncontact {
+    from{
+        background-color: aquamarine;
+    }
+    to {
+        background-color: lightcyan;
+    }
+}
+
 /* Message area stylings */
-#message-area {
+.message-area {
     grid-column: 2;
     grid-row: 2 / span 2;
     background-color: white;
     border-bottom-right-radius: 10px;
 }
 
+.external-chat {
+    background-color: skyblue;
+}
+
+.self-chat {
+    background-color: gainsboro;
+}
+
+/* Message tabs stylings */
+.message-tabs {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    background-color: grey;
+    border-top-right-radius: 10px;
+    align-items:end;
+}
+
+#message-current-contact {
+    color: white;
+    padding: 5px;
+    flex-grow: 1;
+}
+
+.message-tab{
+    padding: 5px;
+    background-color: darkgray;
+    border-color: grey;
+    border-style: solid;
+    border-bottom-width: 0;
+    border-radius: 10px 10px 0px 0px;
+    margin-right: 10px;
+}
+
+.active-message-tab{
+    padding: 5px;
+    background-color: white;
+    border-color: grey;
+    border-style: solid;
+    border-bottom-width: 0;
+    border-radius: 10px 10px 0px 0px;
+    margin-right: 10px;
+}
 /* Whiper message input stylings */
 #whisper-form {
     grid-column: 2;
