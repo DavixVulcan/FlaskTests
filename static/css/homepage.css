@@ -359,17 +359,36 @@ body {
 /* Message area stylings */
 .message-area {
     grid-column: 2;
-    grid-row: 2 / span 2;
+    grid-row: 2 / span 1;
     background-color: white;
     border-bottom-right-radius: 10px;
 }
 
+.message-area-messages {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.whisper-chat {
+    padding: 5px;
+    max-width: 75%;
+    overflow-wrap: anywhere;
+    margin: 5px;
+    border-radius: 10px;
+}
+
 .external-chat {
     background-color: skyblue;
+    align-self: start;
 }
 
 .self-chat {
     background-color: gainsboro;
+    align-self: end;
 }
 
 /* Message tabs stylings */
