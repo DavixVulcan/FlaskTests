@@ -246,13 +246,13 @@ body {
 /* messages and highlights stylings */
 #messages-and-highlights {
     background-color: darkgray;
-    overflow: visible;
+    overflow: hidden;
     display: grid;
     grid-column: 1;
     grid-row: 1;
-    overflow: auto;
     grid-template-columns: 20% auto min-content;
     grid-auto-rows: min-content auto min-content;
+
 }
 
 #highlights {

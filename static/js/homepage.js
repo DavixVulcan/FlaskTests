@@ -70,11 +70,21 @@ function open_message(contact_name) {
         }
     }
 
-    // var selected_message_box = document.getElementById(contact_name+"-mess");
-    // var selected_live_box = document.getElementById(contact_name+"-live");
+    const mess = document.getElementsByClassName("message-area-messages");
+    for (var i = 0; i < mess.length; i++){
+        mess[i].style.display = 'none';
+    }
 
-    // selected_message_box.style.display = 'block';
-    // selected_live_box.style.display = 'none';
+    const live = document.getElementsByClassName("message-area-lives");
+    for (var i = 0; i < live.length; i++){
+        live[i].style.display = 'none';
+    }
+
+    var selected_message_box = document.getElementById(contact_name+"-mess");
+    var selected_live_box = document.getElementById(contact_name+"-live");
+
+    selected_message_box.style.display = 'flex';
+    selected_live_box.style.display = 'none';
 }
 
 function create_contact() {
