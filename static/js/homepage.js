@@ -54,18 +54,27 @@ function new_chat(sender, context, text_field, anim_class, delimiter) {
     }
 }
 
-function open_message(evt) {
+function open_message(contact_name) {
     
-    contact_name = evt.currentTarget.innerHTML;
-    console.log(contact_name)
+    console.log("opening messages for: " + contact_name);
 
     const tabslistedasactive = document.getElementsByClassName("active-contact");
     for (var i = 0; i < tabslistedasactive.length; i++){
         tabslistedasactive[i].setAttribute("class", "contact");
     }
 
-    evt.currentTarget.setAttribute("class", "active-contact");
-    var selected_message_box = document.getElementById(contact_name);
+    const alltabs = document.getElementById("contacts").children;
+    for (var i = 0; i < alltabs.length; i++){
+        if (alltabs[i].innerHTML === contact_name) {
+            alltabs[i].setAttribute("class", "active-contact");
+        }
+    }
+
+    // var selected_message_box = document.getElementById(contact_name+"-mess");
+    // var selected_live_box = document.getElementById(contact_name+"-live");
+
+    // selected_message_box.style.display = 'block';
+    // selected_live_box.style.display = 'none';
 }
 
 function create_contact() {

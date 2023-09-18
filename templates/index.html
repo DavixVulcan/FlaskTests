@@ -24,19 +24,22 @@
                     <div>Messages</div>
                 </div>
                 <div id="contacts">
-                    <button class="active-contact" onclick="open_message(event)">markiplier</button>
-                    <button class="spawn-contact" onclick="open_message(event)">me</button>
-                    <button class="spawn-contact" onclick="open_message(event)">applebees</button>
+                    <button class="spawn-contact" onclick="open_message('Markiplier')">Markiplier</button>
+                    <button class="spawn-contact" onclick="open_message('me')">me</button>
+                    <button class="active-contact" onclick="open_message('applebees')">applebees</button>
                 </div>
                 <div class="message-area">
-                    <div class>
+                    <div class="message-area-messages" id="Markiplier-mess">
+
+                    </div>
+                    <div class="message-area-lives" id="Markiplier-live">
 
                     </div>
                 </div>
                 <div class="message-tabs">
                     <a id="message-current-contact">Markiplier</a>
-                    <a class="active-message-tab">Live Chat</a>
-                    <a class="message-tab">Whispers</a>
+                    <a class="message-tab">Live Chat</a>
+                    <a class="active-message-tab">Whispers</a>
                 </div>
                 <div id="whisper-form">
                     <a style="color: white">Davix_Vulcan> </a>
