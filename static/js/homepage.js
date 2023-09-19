@@ -85,7 +85,30 @@ function open_message(contact_name) {
 
     selected_message_box.style.display = 'flex';
     selected_live_box.style.display = 'none';
+
+    document.getElementById('message-current-contact').innerHTML = contact_name;
 }
 
-function create_contact() {
+function create_contact(contact_name) {
+    var message_area = document.getElementById("message-area");
+    var contacts = document.getElementById("contacts");
+
+    var new_live = document.createElement("div");
+    new_live.setAttribute("class", "message-area-lives");
+    new_live.setAttribute("id", contact_name + "-live");
+    new_live.style.display = "none";
+
+    var new_mess = document.createElement("div");
+    new_mess.setAttribute("class", "message-area-messages");
+    new_mess.setAttribute("id", contact_name + "-mess");
+    new_mess.style.display = "none";
+
+    message_area.appendChild(new_mess);
+    message_area.appendChild(new_live);
+
+    var new_contact = document.createElement("button");
+    new_contact.setAttribute("class", "spawn-contact");
+    new_contact.setAttribute("onclick", "open_message('" + contact_name + "')");
+    new_contact.innerHTML = contact_name;
+    contacts.appendChild(new_contact);
 }
