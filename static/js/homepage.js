@@ -70,6 +70,18 @@ function open_message(contact_name) {
         }
     }
 
+    const toptabslistedasactive = document.getElementsByClassName("active-message-tab");
+    for (var i = 0; i < toptabslistedasactive.length; i++){
+        toptabslistedasactive[i].setAttribute("class", "message-tab");
+    }
+
+    const topalltabs = document.getElementsByClassName("message-tab");
+    for (var i = 0; i < topalltabs.length; i++){
+        if (topalltabs[i].innerHTML === "Whispers") {
+            topalltabs[i].setAttribute("class", "active-message-tab");
+        }
+    }
+
     const mess = document.getElementsByClassName("message-area-messages");
     for (var i = 0; i < mess.length; i++){
         mess[i].style.display = 'none';
@@ -101,6 +113,18 @@ function open_live(contact_name) {
     for (var i = 0; i < alltabs.length; i++){
         if (alltabs[i].innerHTML === contact_name) {
             alltabs[i].setAttribute("class", "active-contact");
+        }
+    }
+
+    const toptabslistedasactive = document.getElementsByClassName("active-message-tab");
+    for (var i = 0; i < toptabslistedasactive.length; i++){
+        toptabslistedasactive[i].setAttribute("class", "message-tab");
+    }
+
+    const topalltabs = document.getElementsByClassName("message-tab");
+    for (var i = 0; i < topalltabs.length; i++){
+        if (topalltabs[i].innerHTML === "Live Chat") {
+            topalltabs[i].setAttribute("class", "active-message-tab");
         }
     }
 
