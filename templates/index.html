@@ -24,9 +24,9 @@
                     <div>Messages</div>
                 </div>
                 <div id="contacts">
-                    <button class="spawn-contact" onclick="open_message('Markiplier')">Markiplier</button>
+                    <button class="active-contact" onclick="open_message('Markiplier')">Markiplier</button>
                     <button class="spawn-contact" onclick="open_message('me')">me</button>
-                    <button class="active-contact" onclick="open_message('applebees')">applebees</button>
+                    <button class="spawn-contact" onclick="open_message('applebees')">applebees</button>
                 </div>
                 <div id="message-area">
                     <div class="message-area-messages" id="Markiplier-mess">
@@ -34,6 +34,7 @@
                         <div class="whisper-chat external-chat">Hello</div>
                     </div>
                     <div class="message-area-lives" id="Markiplier-live">
+                        <div class="live-message-chat">Hi</div>
                     </div>
                     <div class="message-area-messages" id="me-mess">
                         <div class="whisper-chat self-chat">Hello me, how have you been ive been pretty good, yea</div>
@@ -50,8 +51,8 @@
                 </div>
                 <div class="message-tabs">
                     <a id="message-current-contact">Markiplier</a>
-                    <a class="message-tab">Live Chat</a>
-                    <a class="active-message-tab">Whispers</a>
+                    <a class="message-tab" onclick="open_live('Markiplier')">Live Chat</a>
+                    <a class="active-message-tab" onclick="open_message('Markiplier')">Whispers</a>
                 </div>
                 <div id="whisper-form">
                     <a style="color: white">Davix_Vulcan> </a>

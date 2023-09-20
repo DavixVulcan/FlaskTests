@@ -391,6 +391,17 @@ body {
     align-self: end;
 }
 
+.live-message-chat {
+    padding: 5px;
+    max-width: 75%;
+    overflow-wrap: anywhere;
+    margin: 5px;
+    border-style: solid;
+    border-width: 2px 0px 0px 2px;
+    align-self: start;
+    border-color: grey;
+}
+
 /* Message tabs stylings */
 .message-tabs {
     grid-column: 2;

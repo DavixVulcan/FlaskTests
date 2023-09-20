@@ -89,6 +89,40 @@ function open_message(contact_name) {
     document.getElementById('message-current-contact').innerHTML = contact_name;
 }
 
+function open_live(contact_name) {
+    console.log("opening lives for: " + contact_name);
+
+    const tabslistedasactive = document.getElementsByClassName("active-contact");
+    for (var i = 0; i < tabslistedasactive.length; i++){
+        tabslistedasactive[i].setAttribute("class", "contact");
+    }
+
+    const alltabs = document.getElementById("contacts").children;
+    for (var i = 0; i < alltabs.length; i++){
+        if (alltabs[i].innerHTML === contact_name) {
+            alltabs[i].setAttribute("class", "active-contact");
+        }
+    }
+
+    const mess = document.getElementsByClassName("message-area-messages");
+    for (var i = 0; i < mess.length; i++){
+        mess[i].style.display = 'none';
+    }
+
+    const live = document.getElementsByClassName("message-area-lives");
+    for (var i = 0; i < live.length; i++){
+        live[i].style.display = 'none';
+    }
+
+    var selected_message_box = document.getElementById(contact_name+"-mess");
+    var selected_live_box = document.getElementById(contact_name+"-live");
+
+    selected_message_box.style.display = 'none';
+    selected_live_box.style.display = 'flex';
+
+    document.getElementById('message-current-contact').innerHTML = contact_name;
+}
+
 function create_contact(contact_name) {
     var message_area = document.getElementById("message-area");
     var contacts = document.getElementById("contacts");
