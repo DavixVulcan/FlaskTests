@@ -55,7 +55,15 @@ function new_chat(sender, context, text_field, anim_class, delimiter) {
 }
 
 function open_message(contact_name) {
-    
+    var message_tabs = document.getElementById("message-tabs").children;
+    for (var i = 0; i < message_tabs.length; i++){
+        if (message_tabs[i].innerHTML === "Live Chat"){
+            message_tabs[i].setAttribute("onclick", "open_live('" + contact_name + "')");
+        } else if (message_tabs[i].innerHTML === "Whispers"){
+            message_tabs[i].setAttribute("onclick", "open_message('" + contact_name + "')");
+        }
+    }
+
     console.log("opening messages for: " + contact_name);
 
     const tabslistedasactive = document.getElementsByClassName("active-contact");
@@ -102,6 +110,14 @@ function open_message(contact_name) {
 }
 
 function open_live(contact_name) {
+    var message_tabs = document.getElementById("message-tabs").children;
+    for (var i = 0; i < message_tabs.length; i++){
+        if (message_tabs[i].innerHTML === "Live Chat"){
+            message_tabs[i].setAttribute("onclick", "open_live('" + contact_name + "')");
+        } else if (message_tabs[i].innerHTML === "Whispers"){
+            message_tabs[i].setAttribute("onclick", "open_message('" + contact_name + "')");
+        }
+    }
     console.log("opening lives for: " + contact_name);
 
     const tabslistedasactive = document.getElementsByClassName("active-contact");
