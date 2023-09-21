@@ -373,6 +373,13 @@ body {
     overflow-x: hidden;
 }
 
+.message-area-lives {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 .whisper-chat {
     padding: 5px;
     max-width: 75%;

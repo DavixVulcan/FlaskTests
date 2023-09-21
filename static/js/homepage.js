@@ -170,3 +170,15 @@ function create_contact(contact_name) {
     new_contact.innerHTML = contact_name;
     contacts.appendChild(new_contact);
 }
+
+function add_whisper_message(contact_name, message, self) {
+    var messaging_area = document.getElementById(contact_name+"-mess");
+    var message_sent = document.createElement("div");
+    message_sent.innerHTML = message;
+    if(self){
+        message_sent.setAttribute("class", "whisper-chat self-chat");
+    } else {
+        message_sent.setAttribute("class", "whisper-chat external-chat");
+    }
+    messaging_area.insertBefore(message_sent, messaging_area.firstChild);
+}
