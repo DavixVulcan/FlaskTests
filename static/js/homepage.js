@@ -55,14 +55,11 @@ function new_chat(sender, context, text_field, anim_class, delimiter) {
 }
 
 function open_message(contact_name) {
-    var message_tabs = document.getElementById("message-tabs").children;
-    for (var i = 0; i < message_tabs.length; i++){
-        if (message_tabs[i].innerHTML === "Live Chat"){
-            message_tabs[i].setAttribute("onclick", "open_live('" + contact_name + "')");
-        } else if (message_tabs[i].innerHTML === "Whispers"){
-            message_tabs[i].setAttribute("onclick", "open_message('" + contact_name + "')");
-        }
-    }
+
+    var live_tab = get_live_chat_tab();
+    live_tab.setAttribute("onclick", "open_live('" + contact_name + "')");
+    var mess_tab = get_whispers_tab();
+    mess_tab.setAttribute("onclick", "open_message('" + contact_name + "')");
 
     console.log("opening messages for: " + contact_name);
 
@@ -111,14 +108,12 @@ function open_message(contact_name) {
 }
 
 function open_live(contact_name) {
-    var message_tabs = document.getElementById("message-tabs").children;
-    for (var i = 0; i < message_tabs.length; i++){
-        if (message_tabs[i].innerHTML === "Live Chat"){
-            message_tabs[i].setAttribute("onclick", "open_live('" + contact_name + "')");
-        } else if (message_tabs[i].innerHTML === "Whispers"){
-            message_tabs[i].setAttribute("onclick", "open_message('" + contact_name + "')");
-        }
-    }
+    
+    var live_tab = get_live_chat_tab();
+    live_tab.setAttribute("onclick", "open_live('" + contact_name + "')");
+    var mess_tab = get_whispers_tab();
+    mess_tab.setAttribute("onclick", "open_message('" + contact_name + "')");
+
     console.log("opening lives for: " + contact_name);
 
     const tabslistedasactive = document.getElementsByClassName("active-contact");
@@ -189,6 +184,34 @@ function create_contact(contact_name) {
     contacts.appendChild(new_contact);
 }
 
+function delete_contact(contact_name) {
+    var message_tab = document.getElementById("message-current-contact");
+    var live_tab = get_live_chat_tab();
+    var mess_tab = get_whispers_tab();
+    if (message_tab.innerHTML === contact_name){
+        message_tab.innerHTML = "";
+        live_tab.onclick = null;
+        mess_tab.onclick = null;
+    }
+
+    var contacts = document.getElementById("contacts");
+
+    var old_live = document.getElementById(contact_name + "-live");
+    old_live.remove();
+
+    var old_mess = document.getElementById(contact_name + "-mess");
+    old_mess.remove();
+
+    var contacts =  get_contacts_elements();
+    for (var i = 0; i < contacts.length; i++){
+        if (contacts[i].innerHTML === contact_name){
+            contacts[i].remove();
+        }
+    }
+
+
+}
+
 function add_whisper_message(contact_name, message, self = false) {
     var messaging_area = document.getElementById(contact_name+"-mess");
     var message_sent = document.createElement("div");
@@ -242,4 +265,22 @@ function get_contacts() {
 
 function get_contacts_elements() {
     return document.getElementById("contacts").children;
+}
+
+function get_live_chat_tab() {
+    var message_tabs = document.getElementById("message-tabs").children;
+    for (var i = 0; i < message_tabs.length; i++){
+        if (message_tabs[i].innerHTML === "Live Chat"){
+            return message_tabs[i];
+        }
+    }
+}
+
+function get_whispers_tab() {
+    var message_tabs = document.getElementById("message-tabs").children;
+    for (var i = 0; i < message_tabs.length; i++){
+        if (message_tabs[i].innerHTML === "Whispers"){
+            return message_tabs[i];
+        }
+    }
 }
