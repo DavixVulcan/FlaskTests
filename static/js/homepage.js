@@ -128,7 +128,7 @@ function open_live(contact_name) {
 
     const alltabs = document.getElementById("contacts").children;
     for (var i = 0; i < alltabs.length; i++){
-        if (alltabs[i].innerHTML === contact_name) {
+        if (alltabs[i].innerHTML === contact_name){
             alltabs[i].setAttribute("class", "active-contact");
         }
     }
@@ -140,7 +140,7 @@ function open_live(contact_name) {
 
     const topalltabs = document.getElementsByClassName("message-tab");
     for (var i = 0; i < topalltabs.length; i++){
-        if (topalltabs[i].innerHTML === "Live Chat") {
+        if (topalltabs[i].innerHTML === "Live Chat"){
             topalltabs[i].setAttribute("class", "active-message-tab");
         }
     }
@@ -189,14 +189,43 @@ function create_contact(contact_name) {
     contacts.appendChild(new_contact);
 }
 
-function add_whisper_message(contact_name, message, self) {
+function add_whisper_message(contact_name, message, self = false) {
     var messaging_area = document.getElementById(contact_name+"-mess");
     var message_sent = document.createElement("div");
     message_sent.innerHTML = message;
-    if(self){
+    if (self){
         message_sent.setAttribute("class", "whisper-chat self-chat");
     } else {
         message_sent.setAttribute("class", "whisper-chat external-chat");
     }
-    messaging_area.insertBefore(message_sent, messaging_area.firstChild);
+
+    try {
+        messaging_area.insertBefore(message_sent, messaging_area.firstChild);
+    } catch (e) {
+        if (e instanceof TypeError){
+            console.log(contact_name + " does not exist as a contact");
+        } else {
+            console.log(e);
+        }
+    }
+    
+}
+
+function add_live_message(contact_name, message) {
+    var live_area = document.getElementById(contact_name+"-live");
+    var message_sent = document.createElement("div");
+    message_sent.innerHTML = message;
+    message_sent.setAttribute("class", "live-message-chat");
+
+    try {
+        live_area.insertBefore(message_sent, live_area.firstChild);
+    } catch (e) {
+        if (e instanceof TypeError){
+            console.log(contact_name + " does not exist as a contact");
+        } else {
+            console.log(e);
+        }
+    }
+
+    
 }
