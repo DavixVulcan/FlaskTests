@@ -106,6 +106,7 @@ function open_message(contact_name) {
     selected_message_box.style.display = 'flex';
     selected_live_box.style.display = 'none';
 
+    document.getElementById("whisper-form").style.display = 'flex'
     document.getElementById('message-current-contact').innerHTML = contact_name;
 }
 
@@ -160,6 +161,7 @@ function open_live(contact_name) {
     selected_message_box.style.display = 'none';
     selected_live_box.style.display = 'flex';
 
+    document.getElementById("whisper-form").style.display = 'none'
     document.getElementById('message-current-contact').innerHTML = contact_name;
 }
 
