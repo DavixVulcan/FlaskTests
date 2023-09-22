@@ -50,7 +50,7 @@ function new_chat(sender, context, text_field, anim_class, delimiter) {
         new_message.setAttribute("class", anim_class);
         context.insertBefore(new_message, context.firstChild);
         text_field.value = '';
-        socket.send(sender + ": " + message);
+        socket.send(sender + delimiter + message);
     }
 }
 
@@ -71,7 +71,7 @@ function open_message(contact_name) {
         tabslistedasactive[i].setAttribute("class", "contact");
     }
 
-    const alltabs = document.getElementById("contacts").children;
+    const alltabs = get_contacts_elements();
     for (var i = 0; i < alltabs.length; i++){
         if (alltabs[i].innerHTML === contact_name) {
             alltabs[i].setAttribute("class", "active-contact");
@@ -126,7 +126,7 @@ function open_live(contact_name) {
         tabslistedasactive[i].setAttribute("class", "contact");
     }
 
-    const alltabs = document.getElementById("contacts").children;
+    const alltabs = get_contacts_elements();
     for (var i = 0; i < alltabs.length; i++){
         if (alltabs[i].innerHTML === contact_name){
             alltabs[i].setAttribute("class", "active-contact");
@@ -227,5 +227,19 @@ function add_live_message(contact_name, message) {
         }
     }
 
-    
+}
+
+function get_contacts() {
+    var contactlist = document.getElementById("contacts").children;
+    var contacts = [];
+
+    for (var i = 0; i < contactlist.length; i++){
+        contacts.push(contactlist[i].innerHTML);
+    }
+
+    return contacts;
+}
+
+function get_contacts_elements() {
+    return document.getElementById("contacts").children;
 }
