@@ -190,30 +190,34 @@ function create_contact(contact_name) {
 }
 
 function delete_contact(contact_name) {
-    var message_tab = document.getElementById("message-current-contact");
-    var live_tab = get_live_chat_tab();
-    var mess_tab = get_whispers_tab();
-    if (message_tab.innerHTML === contact_name){
-        message_tab.innerHTML = "";
-        live_tab.onclick = null;
-        mess_tab.onclick = null;
-    }
-
-    var contacts = document.getElementById("contacts");
-
-    var old_live = document.getElementById(contact_name + "-live");
-    old_live.remove();
-
-    var old_mess = document.getElementById(contact_name + "-mess");
-    old_mess.remove();
-
-    var contacts =  get_contacts_elements();
-    for (var i = 0; i < contacts.length; i++){
-        if (contacts[i].innerHTML === contact_name){
-            contacts[i].remove();
+    var current_contacts = get_contacts();
+    if (current_contacts.includes(contact_name)){
+        var message_tab = document.getElementById("message-current-contact");
+        var live_tab = get_live_chat_tab();
+        var mess_tab = get_whispers_tab();
+        if (message_tab.innerHTML === contact_name){
+            message_tab.innerHTML = "";
+            live_tab.onclick = null;
+            mess_tab.onclick = null;
         }
-    }
 
+        var contacts = document.getElementById("contacts");
+
+        var old_live = document.getElementById(contact_name + "-live");
+        old_live.remove();
+
+        var old_mess = document.getElementById(contact_name + "-mess");
+        old_mess.remove();
+
+        var contacts =  get_contacts_elements();
+        for (var i = 0; i < contacts.length; i++){
+            if (contacts[i].innerHTML === contact_name){
+                contacts[i].remove();
+            }
+        }
+    } else {
+        console.log(contact_name + " does not exist as a contact");
+    }
 
 }
 
