@@ -161,27 +161,32 @@ function open_live(contact_name) {
 }
 
 function create_contact(contact_name) {
-    var message_area = document.getElementById("message-area");
-    var contacts = document.getElementById("contacts");
+    var current_contacts = get_contacts();
+    if (!current_contacts.includes(contact_name)){
+        var message_area = document.getElementById("message-area");
+        var contacts = document.getElementById("contacts");
 
-    var new_live = document.createElement("div");
-    new_live.setAttribute("class", "message-area-lives");
-    new_live.setAttribute("id", contact_name + "-live");
-    new_live.style.display = "none";
+        var new_live = document.createElement("div");
+        new_live.setAttribute("class", "message-area-lives");
+        new_live.setAttribute("id", contact_name + "-live");
+        new_live.style.display = "none";
 
-    var new_mess = document.createElement("div");
-    new_mess.setAttribute("class", "message-area-messages");
-    new_mess.setAttribute("id", contact_name + "-mess");
-    new_mess.style.display = "none";
+        var new_mess = document.createElement("div");
+        new_mess.setAttribute("class", "message-area-messages");
+        new_mess.setAttribute("id", contact_name + "-mess");
+        new_mess.style.display = "none";
 
-    message_area.appendChild(new_mess);
-    message_area.appendChild(new_live);
+        message_area.appendChild(new_mess);
+        message_area.appendChild(new_live);
 
-    var new_contact = document.createElement("button");
-    new_contact.setAttribute("class", "spawn-contact");
-    new_contact.setAttribute("onclick", "open_message('" + contact_name + "')");
-    new_contact.innerHTML = contact_name;
-    contacts.appendChild(new_contact);
+        var new_contact = document.createElement("button");
+        new_contact.setAttribute("class", "spawn-contact");
+        new_contact.setAttribute("onclick", "open_message('" + contact_name + "')");
+        new_contact.innerHTML = contact_name;
+        contacts.appendChild(new_contact);
+    } else {
+        console.log(contact_name + " already exists as a contact");
+    }
 }
 
 function delete_contact(contact_name) {
