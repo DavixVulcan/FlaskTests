@@ -293,3 +293,14 @@ function get_whispers_tab() {
         }
     }
 }
+
+function get_topnav_tab(name) {
+    var topnav_els = document.getElementById("right-menu").children;
+    for (var i = 0; i < topnav_els.length; i++){
+        if (topnav_els[i].innerHTML === name){
+            return topnav_els[i];
+        }
+    }
+
+    console.log(name + " does not exist in the topnav");
+}
