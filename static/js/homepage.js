@@ -304,3 +304,8 @@ function get_topnav_tab(name) {
 
     console.log(name + " does not exist in the topnav");
 }
+
+function open_page(name) {
+    var page = document.getElementById(name);
+    page.style.display = "grid";
+}
