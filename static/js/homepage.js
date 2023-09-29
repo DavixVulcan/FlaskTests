@@ -307,5 +307,10 @@ function get_topnav_tab(name) {
 
 function open_page(name) {
     var page = document.getElementById(name);
+    var pages = document.getElementById("right-menu").children;
+    for (var i = 0; i < pages.length; i++){
+        var innerpage = document.getElementById(pages[i].innerHTML);
+        innerpage.style.display = "none";
+    }
     page.style.display = "grid";
 }

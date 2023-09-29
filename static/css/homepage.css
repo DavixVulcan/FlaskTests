@@ -1,6 +1,7 @@
 body {
     font-family: Consolas;
     background-color: grey;
+    overflow-y: hidden;
 }   
 
 /* Top navigation stylings */

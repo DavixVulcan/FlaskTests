@@ -9,13 +9,12 @@
         <div class="topnav">
             <a class="eyecon">👁 PanOptica</a>
             <div class="right-menu" id="right-menu">
-                <a>Home</a>                
-                <a>Staging</a>
-                <a>Moderation</a>
-                <a>About</a>
+                <a onclick="open_page('Home')">Home</a>                
+                <a onclick="open_page('Staging')">Staging</a>
+                <a onclick="open_page('Moderation')">Moderation</a>
+                <a onclick="open_page('About')">About</a>
             </div>
         </div>
-
 
         <div class="grid-container" id="Home">
             
@@ -94,7 +93,18 @@
 
             </div>
         </div>
-        
+
+        <div id="Staging" style = "display: none;">
+            <p>staging</p>
+        </div>
+
+        <div id="Moderation" style = "display: none;">
+            <p>moderation</p>
+        </div>
+
+        <div id="About" style = "display: none;">
+            <p>about</p>
+        </div>
 
         <!-- Script for the entire page -->
         <!-- <script type = "text/javascript"
