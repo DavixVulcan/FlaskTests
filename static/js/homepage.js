@@ -288,7 +288,7 @@ function get_current_contact(){
 }
 
 function get_contacts() {
-    var contactlist = document.getElementById("contacts").children;
+    var contactlist = get_contacts_elements();
     var contacts = [];
 
     for (var i = 0; i < contactlist.length; i++){
@@ -320,23 +320,30 @@ function get_whispers_tab() {
     }
 }
 
-// function get_topnav_tab(name) {
-//     var topnav_els = document.getElementById("right-menu").children;
-//     for (var i = 0; i < topnav_els.length; i++){
-//         if (topnav_els[i].innerHTML === name){
-//             return topnav_els[i];
-//         }
-//     }
-
-//     console.log(name + " does not exist in the topnav");
-// }
-
 function open_page(name) {
     var page = document.getElementById(name);
-    var pages = document.getElementById("right-menu").children;
+    var pages = get_topnav_elements();
     for (var i = 0; i < pages.length; i++){
         var innerpage = document.getElementById(pages[i].innerHTML);
         innerpage.style.display = "none";
+        pages[i].setAttribute("class", "");
     }
     page.style.display = "grid";
+    get_topnav_tab(name).setAttribute("class", "active-menu-tab");
 }
+
+function get_topnav_tab(name) {
+    var topnav_els = get_topnav_elements();
+    for (var i = 0; i < topnav_els.length; i++){
+        if (topnav_els[i].innerHTML === name){
+            return topnav_els[i];
+        }
+    }
+
+    console.log(name + " does not exist in the topnav");
+}
+
+function get_topnav_elements(){
+    return document.getElementById("right-menu").children;
+}
+

@@ -53,6 +53,13 @@ body {
     color: grey;
 }
 
+.right-menu .active-menu-tab {
+    color: deepskyblue;
+    border-style: solid;
+    border-color: grey;
+    border-width: 0 0 4px 0;
+}
+
 .right-menu a:hover {
     animation-name: menuhover;
     animation-duration: .15s;
