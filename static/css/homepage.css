@@ -363,6 +363,7 @@ body {
     grid-row: 2;
     background-color: white;
     border-bottom-right-radius: 10px;
+    overflow: hidden;
 }
 
 .message-area-messages {

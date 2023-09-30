@@ -3,6 +3,20 @@ socket.addEventListener('message', ev => {
     console.log("recieved:" + ev.data)
 })
 
+document.getElementById('whisper-send').onclick = ev => {
+    const textfield = document.getElementById("whisper-input");
+    add_whisper_message(get_current_contact(), textfield.value, true);
+    textfield.value = "";
+}
+
+document.getElementById("whisper-input").addEventListener("keydown", (e)=>{
+    if (e.code === "Enter"){
+        const textfield = document.getElementById("whisper-input");
+        add_whisper_message(get_current_contact(), textfield.value, true);
+        textfield.value = "";
+    }
+})
+
 document.getElementById('chat-send').onclick = ev => {
     const textfield = document.getElementById("chat-input");
     const chat_context = document.getElementById('upper-chat-text');
@@ -222,43 +236,55 @@ function delete_contact(contact_name) {
 }
 
 function add_whisper_message(contact_name, message, self = false) {
-    var messaging_area = document.getElementById(contact_name+"-mess");
-    var message_sent = document.createElement("div");
-    message_sent.innerHTML = message;
-    if (self){
-        message_sent.setAttribute("class", "whisper-chat self-chat");
-    } else {
-        message_sent.setAttribute("class", "whisper-chat external-chat");
-    }
-
-    try {
-        messaging_area.insertBefore(message_sent, messaging_area.firstChild);
-    } catch (e) {
-        if (e instanceof TypeError){
-            console.log(contact_name + " does not exist as a contact");
+    message = message.trim();
+    console.log(message);
+    if (message.length !== 0){
+        var messaging_area = document.getElementById(contact_name+"-mess");
+        var message_sent = document.createElement("div");
+        message_sent.innerHTML = message;
+        if (self){
+            message_sent.setAttribute("class", "whisper-chat self-chat");
         } else {
-            console.log(e);
+            message_sent.setAttribute("class", "whisper-chat external-chat");
+        }
+
+        try {
+            messaging_area.insertBefore(message_sent, messaging_area.firstChild);
+        } catch (e) {
+            if (e instanceof TypeError){
+                console.log(contact_name + " does not exist as a contact");
+            } else {
+                console.log(e);
+            }
         }
     }
     
 }
 
 function add_live_message(contact_name, message) {
-    var live_area = document.getElementById(contact_name+"-live");
-    var message_sent = document.createElement("div");
-    message_sent.innerHTML = message;
-    message_sent.setAttribute("class", "live-message-chat");
+    message = message.trim();
+    if (message.length !== 0){
+        var live_area = document.getElementById(contact_name+"-live");
+        var message_sent = document.createElement("div");
+        message_sent.innerHTML = message;
+        message_sent.setAttribute("class", "live-message-chat");
 
-    try {
-        live_area.insertBefore(message_sent, live_area.firstChild);
-    } catch (e) {
-        if (e instanceof TypeError){
-            console.log(contact_name + " does not exist as a contact");
-        } else {
-            console.log(e);
+        try {
+            live_area.insertBefore(message_sent, live_area.firstChild);
+        } catch (e) {
+            if (e instanceof TypeError){
+                console.log(contact_name + " does not exist as a contact");
+            } else {
+                console.log(e);
+            }
         }
     }
 
+}
+
+function get_current_contact(){
+    var curr = document.getElementById("message-current-contact");
+    return curr.innerHTML;
 }
 
 function get_contacts() {
@@ -294,16 +320,16 @@ function get_whispers_tab() {
     }
 }
 
-function get_topnav_tab(name) {
-    var topnav_els = document.getElementById("right-menu").children;
-    for (var i = 0; i < topnav_els.length; i++){
-        if (topnav_els[i].innerHTML === name){
-            return topnav_els[i];
-        }
-    }
+// function get_topnav_tab(name) {
+//     var topnav_els = document.getElementById("right-menu").children;
+//     for (var i = 0; i < topnav_els.length; i++){
+//         if (topnav_els[i].innerHTML === name){
+//             return topnav_els[i];
+//         }
+//     }
 
-    console.log(name + " does not exist in the topnav");
-}
+//     console.log(name + " does not exist in the topnav");
+// }
 
 function open_page(name) {
     var page = document.getElementById(name);
