@@ -305,6 +305,7 @@ body {
 }
 
 .spawn-contact {
+    overflow: hidden;
     margin: 3px 5px 3px 5px;
     padding:  2px 5px 2px 7px;
     border-radius: 25px;
@@ -314,6 +315,7 @@ body {
 }
 
 .contact {
+    overflow: hidden;
     margin: 3px 5px 3px 5px;
     padding:  2px 5px 2px 7px;
     border-radius: 25px;
@@ -323,6 +325,7 @@ body {
 }
 
 .active-contact {
+    overflow: hidden;
     margin: 3px 0px 3px 5px;
     padding:  2px 5px 2px 7px;
     border-radius: 25px 0px 0px 25px;
