@@ -3,7 +3,9 @@
     <head>
         <title>PanOptica</title>
         <!-- <link rel="stylesheet" href="{{url_for('static', filename = 'css/homepage.css')}}"> -->
-        <link rel="stylesheet" href="../static/css/homepage.css">
+        <!-- <link rel="stylesheet" href="{{url_for('static', filename = 'css/staging_tab.css')}}"> -->
+        <link rel="stylesheet" type="text/css" href="../static/css/homepage.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/staging_tab.css">
     </head>
     <body>
         <div class="topnav">
@@ -94,8 +96,9 @@
             </div>
         </div>
 
-        <div id="Staging" style = "display: none;">
+        <div class="staging-container" id="Staging" style = "display: none;">
             <p>staging</p>
+            <canvas class="staging-canvas"></canvas>
         </div>
 
         <div id="Moderation" style = "display: none;">

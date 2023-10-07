@@ -1,0 +1,18 @@
+.staging-container {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 33% auto;
+    grid-template-rows: 70% auto;
+    height: 87vh;
+    margin: 10px;
+}
+
+.staging-canvas {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
