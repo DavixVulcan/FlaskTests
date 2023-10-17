@@ -6,6 +6,9 @@
         <!-- <link rel="stylesheet" href="{{url_for('static', filename = 'css/staging_tab.css')}}"> -->
         <link rel="stylesheet" type="text/css" href="../static/css/homepage.css">
         <link rel="stylesheet" type="text/css" href="../static/css/staging_tab.css">
+        <script src="../static/js/libraries/three.min.js"></script>
+        <script src="../static/js/libraries/three.module.min.js"></script>
+        
     </head>
     <body>
         <div class="topnav">
@@ -98,7 +101,7 @@
 
         <div class="staging-container" id="Staging" style = "display: none;">
             <p>staging</p>
-            <canvas class="staging-canvas"></canvas>
+            <canvas class="staging-canvas" id="main-canvas-staging"></canvas>
         </div>
 
         <div id="Moderation" style = "display: none;">
@@ -114,5 +117,6 @@
             src = "{{url_for('static', filename = 'js/homepage.js')}}">
         </script> -->
         <script src="../static/js/homepage.js"></script>
+        <script src="../static/js/staging_tab.js"></script>
     </body>
 </html>
