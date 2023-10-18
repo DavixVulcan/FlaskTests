@@ -72,7 +72,8 @@ function open_message(contact_name) {
 
     var live_tab = get_live_chat_tab();
     live_tab.setAttribute("onclick", "open_live('" + contact_name + "')");
-    var mess_tab = get_whispers_tab();
+    // var mess_tab = get_whispers_tab();
+    var mess_tab = get_whisp_or_mess_elem("Whispers");
     mess_tab.setAttribute("onclick", "open_message('" + contact_name + "')");
 
     console.log("opening messages for: " + contact_name);
@@ -123,9 +124,11 @@ function open_message(contact_name) {
 
 function open_live(contact_name) {
     
-    var live_tab = get_live_chat_tab();
+    // var live_tab = get_live_chat_tab();
+    var live_tab = get_whisp_or_mess_elem("Live Chat");
     live_tab.setAttribute("onclick", "open_live('" + contact_name + "')");
-    var mess_tab = get_whispers_tab();
+    // var mess_tab = get_whispers_tab();
+    var mess_tab = get_whisp_or_mess_elem("Whispers");
     mess_tab.setAttribute("onclick", "open_message('" + contact_name + "')");
 
     console.log("opening lives for: " + contact_name);
@@ -207,8 +210,10 @@ function delete_contact(contact_name) {
     var current_contacts = get_contacts();
     if (current_contacts.includes(contact_name)){
         var message_tab = document.getElementById("message-current-contact");
-        var live_tab = get_live_chat_tab();
-        var mess_tab = get_whispers_tab();
+        // var live_tab = get_live_chat_tab();
+        var live_tab = get_whisp_or_mess_elem("Live Chat");
+        // var mess_tab = get_whispers_tab();
+        var mess_tab = get_whisp_or_mess_elem("Whispers");
         if (message_tab.innerHTML === contact_name){
             message_tab.innerHTML = "";
             live_tab.onclick = null;
@@ -315,6 +320,15 @@ function get_whispers_tab() {
     var message_tabs = document.getElementById("message-tabs").children;
     for (var i = 0; i < message_tabs.length; i++){
         if (message_tabs[i].innerHTML === "Whispers"){
+            return message_tabs[i];
+        }
+    }
+}
+
+function get_whisp_or_mess_elem(tabtoselect) {
+    var message_tabs = document.getElementById("message-tabs").children;
+    for (var i = 0; i < message_tabs.length; i++){
+        if (message_tabs[i].innerHTML === tabtoselect){
             return message_tabs[i];
         }
     }
