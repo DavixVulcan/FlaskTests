@@ -239,6 +239,13 @@ body {
     animation-duration:  .25s;
 }
 
+.chat-message:hover {
+    background-color: lightcyan;
+    color: skyblue ;
+    text-decoration: underline;
+}
+
+
 @keyframes chatintro {
     from {
         transform: translateX(100%);
@@ -285,6 +292,8 @@ body {
     flex-direction: column;
     border-bottom-left-radius: 10px;
     padding-top: 3px;
+    overflow-y: auto;
+    scrollbar-width: thin;
 }
 
 #contacts button {
@@ -305,7 +314,7 @@ body {
 }
 
 .spawn-contact {
-    overflow: hidden;
+    height: fit-content;
     margin: 3px 5px 3px 5px;
     padding:  2px 5px 2px 7px;
     border-radius: 25px;
@@ -315,7 +324,7 @@ body {
 }
 
 .contact {
-    overflow: hidden;
+    height: fit-content;
     margin: 3px 5px 3px 5px;
     padding:  2px 5px 2px 7px;
     border-radius: 25px;
@@ -325,13 +334,12 @@ body {
 }
 
 .active-contact {
-    overflow: hidden;
+    height: fit-content;
     margin: 3px 0px 3px 5px;
     padding:  2px 5px 2px 7px;
     border-radius: 25px 0px 0px 25px;
     background-color: white;
     color: deepskyblue;
-    text-decoration: underline;
     animation-name: contacttoactive;
     animation-duration: .3s;
 }
@@ -372,7 +380,7 @@ body {
     grid-column: 2;
     grid-row: 2;
     background-color: white;
-    border-bottom-right-radius: 10px;
+    /* border-bottom-right-radius: 10px; */
     overflow: hidden;
 }
 
@@ -473,3 +481,42 @@ body {
     border-bottom-right-radius: 10px;
 }
 
+
+#bottom-tags {
+    display: grid;
+    grid-column: 1 / span 3;
+    grid-row: 2;
+    grid-template-columns: 50% auto;
+    grid-template-rows: 100%;
+}
+
+#user-box {
+    display: grid;
+    grid-column: 1;
+    grid-row: 2;
+    grid-template-columns: 128px auto;
+    grid-template-rows: 128px auto;
+    background-color: darkgray;
+}
+
+#user-text{
+    grid-column: 2;
+    grid-row: 1;
+    background-color: grey;
+}
+
+#user-image {
+    grid-column: 1;
+    grid-row: 1;
+    background-color: white;
+}
+
+#stream-box {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#notable-box {
+    grid-column: 3;
+    grid-row: 2;
+}
