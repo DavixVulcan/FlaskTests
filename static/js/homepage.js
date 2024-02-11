@@ -24,14 +24,20 @@ document.getElementById('chat-send').onclick = ev => {
 }
 
 document.getElementById('chat-pin').onclick = ev => {
+    
     const textfield = document.getElementById("chat-input");
-    const chat_context = document.getElementById('chat');
+    let text = textfield.value.trim();
+    const chat_context = document.getElementById('upper-chat-text');
     // new_chat('me', chat_context, textfield, "chat-message", ":");
-    pinned_message('me', chat_context, textfield, "chat-pin");
+    if (text.length !== 0){
+        delete_pin();
+        pinned_message('me', chat_context, textfield, "chat-pinned-message");
+    }
 }
 
 document.getElementById("chat-input").addEventListener("keydown", (e)=>{
     if (e.code === "Enter"){
+        console.log("hehe");
         const textfield = document.getElementById("chat-input");
         const chat_context = document.getElementById('upper-chat-text');
         new_chat('me', chat_context, textfield, "chat-message", ":");
@@ -69,11 +75,20 @@ function pinned_message(sender, context, text_field, anim_class) {
         new_message.appendChild(chatter_message);
 
         new_message.setAttribute("class", anim_class);
+        new_message.setAttribute("onclick", "delete_pin()");
         
         text_field.value = '';
         context.insertBefore(new_message, context.firstChild);
         socket.send(sender + ": " + message);
     }
+}
+
+function delete_pin(){
+    let pins = document.getElementsByClassName("chat-pinned-message");
+    for (var i = 0; i < pins.length; i++){
+        pins[i].remove();
+    }
+    return pins;
 }
 
 function new_chat(sender, context, text_field, anim_class, delimiter) {

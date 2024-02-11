@@ -238,34 +238,44 @@ body {
     margin-left: 5px;
 }
 
-/* #chat-form .message-send {
-    background-color: lightgrey;
-}
-
-#chat-form .message-send:hover {
+.chat-message:hover {
     background-color: lightcyan;
-    color:gray;
+    color: skyblue ;
+    cursor: alias;
+}
+.chat-pinned-message {
+    position: absolute;
+    background-color: lightcyan;
+    border-radius: 10px;
+    top: 110px;
+    width: calc(33% - 85px);
+    animation: pins;
+    animation-duration: 1s;
+    border: 1px;
+    border-style: solid;
+    border-color: deepskyblue;
+    padding: 5px;
 }
 
-#chat-form .message-send:active {
-    background-color: white;
-} */
+.chat-pinned-message:hover {
+    text-decoration:line-through;
+    color: skyblue;
+}
+
+@keyframes pins {
+    from {
+        background-color: rgba(245, 222, 179, 0);
+        transform: translateY(100%);
+    }
+    to {
+        background-color: lightcyan;
+        transform: none;
+    }
+}
 
 .chat-message {
     animation-name: chatintro;
     animation-duration:  .25s;
-}
-
-.chat-message:hover {
-    background-color: lightcyan;
-    color: skyblue ;
-    cursor: help;
-}
-.chat-pin {
-    position: absolute;
-    background-color: gainsboro;
-    border-radius: 10px;
-    
 }
 
 @keyframes chatintro {
