@@ -1,4 +1,5 @@
 const socket = new WebSocket('ws://' + location.host + '/echo');
+let idcast = 0;
 socket.addEventListener('message', ev => {
     console.log("recieved:" + ev.data)
 })
@@ -91,7 +92,7 @@ function delete_pin(){
     return pins;
 }
 
-function new_chat(sender, context, text_field, anim_class, delimiter) {
+function new_chat(sender, context, text_field, anim_class, delimiter, idnum = null) {
     
     message = text_field.value;
     message = message.trim();
@@ -107,11 +108,25 @@ function new_chat(sender, context, text_field, anim_class, delimiter) {
         new_message.appendChild(chatter_name);
         new_message.appendChild(chatter_message);
 
+        if (idnum == null) {
+            new_message.setAttribute("data-id", idcast);
+            idcast += 1;
+        } else {
+            new_message.setAttribute("data-id", idnum);
+        }
         new_message.setAttribute("class", anim_class);
+        new_message.setAttribute("onclick", "inspect_chat('" + sender + "','" + message + "')");
         context.insertBefore(new_message, context.firstChild);
         text_field.value = '';
         socket.send(sender + delimiter + message);
     }
+}
+
+function inspect_chat(name, text){
+    let image = document.getElementById("user-image");
+    let message = document.getElementById("user-text");
+    image.innerHTML = name;
+    message.innerHTML = text;
 }
 
 function open_message(contact_name) {
