@@ -93,7 +93,10 @@ function delete_pin(){
 }
 
 function new_chat(sender, context, text_field, anim_class, delimiter, idnum = null) {
-    
+    message_amount = context.children.length;
+    if (message_amount >= 100){
+        context.lastElementChild.remove();
+    };
     message = text_field.value;
     message = message.trim();
     if (message.length !== 0){
